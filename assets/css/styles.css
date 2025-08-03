@@ -13,40 +13,20 @@ body, html {
   color: white;
 }
 
-/* Header y logo fijo a la izquierda */
 .header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100vh; /* para que el header cubra toda la altura y podamos mover el logo */
   width: 120px;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
   padding: 20px;
-  transition: background 0.5s ease;
-}
-
-.logo {
-  max-width: 100px;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.header.scrolled {
-  background: #dfd7e4;
-}
-
-.header.scrolled .logo {
-  transform: scale(0.8);
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+  z-index: 1000;
+  background: transparent;
 }
 
 /* Contenedor principal */
 .main-content {
-  margin-left: 140px; /* espacio para el sidebar */
+  margin-left: 0; /* espacio para el sidebar */
   min-height: 100vh;
 }
 
@@ -110,8 +90,11 @@ body, html {
 }
 .gallery .gallery-grid img {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   object-fit: cover;
   transition: transform 0.3s ease;
@@ -163,19 +146,30 @@ body, html {
   filter: brightness(1.2);
 }
 .contact .contact-buttons .btn.mercado-pago {
-  background-color: #003399;
+  background-color: #023db3;
 }
 .contact .contact-buttons .btn.mercado-pago:hover {
-  background-color: #002266;
+  background-color: rgb(0, 45.9, 137.7);
 }
 
 footer {
-  background: #dfd7e4;
-  color: #fff;
-  padding: 1.5rem 0;
+  position: relative;
+  background-color: #dfd7e4;
+  color: #222;
+  padding: 2rem;
   text-align: center;
   font-size: 0.9rem;
   font-weight: 500;
+  overflow: hidden;
+}
+
+.logo-footer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  opacity: 0.8;
+  z-index: 999;
 }
 
 /*# sourceMappingURL=styles.css.map */
