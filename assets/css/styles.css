@@ -1,0 +1,181 @@
+@charset "UTF-8";
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: #111;
+  color: white;
+}
+
+/* Header y logo fijo a la izquierda */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 120px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  transition: background 0.5s ease;
+}
+
+.logo {
+  max-width: 100px;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.7));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.header.scrolled {
+  background: #dfd7e4;
+}
+
+.header.scrolled .logo {
+  transform: scale(0.8);
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.8));
+}
+
+/* Contenedor principal */
+.main-content {
+  margin-left: 140px; /* espacio para el sidebar */
+  min-height: 100vh;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  text-align: center;
+  transition: color 0.8s ease;
+  color: rgb(240, 228, 228);
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../img/1.png") no-repeat center center/cover;
+  filter: brightness(0.3);
+  transition: filter 0.8s ease;
+  z-index: 0;
+}
+
+.hero.light-mode .hero-background {
+  filter: brightness(1);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  font-size: 1.8rem;
+  max-width: 700px;
+  transition: color 0.8s ease;
+}
+
+.hero.light-mode .hero-text {
+  color: #222;
+}
+
+.gallery {
+  padding: 3rem 2rem;
+  background: #dfd7e4;
+  color: #222;
+  text-align: center;
+}
+.gallery h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+.gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.gallery .gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.gallery .gallery-grid img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.contact {
+  padding: 3rem 2rem;
+  background: #dfd7e4;
+  color: #222;
+  text-align: center;
+}
+.contact h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+.contact .contact-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.contact .contact-buttons .btn {
+  font-family: "Montserrat", sans-serif;
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #fff;
+  min-width: 130px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+.contact .contact-buttons .btn.whatsapp {
+  background-color: #25d366;
+}
+.contact .contact-buttons .btn.whatsapp:hover {
+  background-color: rgb(29.3911290323, 167.6088709677, 81.0241935484);
+}
+.contact .contact-buttons .btn.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.contact .contact-buttons .btn.instagram:hover {
+  filter: brightness(1.2);
+}
+.contact .contact-buttons .btn.mercado-pago {
+  background-color: #003399;
+}
+.contact .contact-buttons .btn.mercado-pago:hover {
+  background-color: #002266;
+}
+
+footer {
+  background: #dfd7e4;
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=styles.css.map */
