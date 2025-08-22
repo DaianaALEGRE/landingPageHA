@@ -1,10 +1,10 @@
 @use "sass:color";
 
-// Variables para colores y fuentes (podés ajustar)
+// Variables para colores y fuentes 
 
 
-$primary-color: #dfd7e4; // violeta oscuro
-$secondary-color: #ab47bc; // violeta claro
+$primary-color: #dfd7e4; 
+$secondary-color: #ab47bc; 
 $text-color-light: #fff;
 $text-color-dark: #222;
 $btn-padding: 0.6rem 1.2rem;
@@ -54,7 +54,7 @@ body, html {
 .hero-background {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('../img/1.png') no-repeat center center/cover;
+  background: url('../img/mujerBlancoFondo.jpg') no-repeat center center/cover;
   filter: brightness(0.3);
   transition: filter 0.8s ease;
   z-index: 0;
@@ -74,10 +74,9 @@ body, html {
 }
 
 
-// Galería
 .gallery {
   padding: 3rem 2rem;
-  background: $primary-color;
+  background: #fdfdfd; // fondo casi blanco
   color: $text-color-dark;
   text-align: center;
 
@@ -88,36 +87,82 @@ body, html {
 
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 1.5rem;
     max-width: 900px;
     margin: 0 auto;
 
-    img {
-   width: 100%;
-  height: 200px;         
-  object-fit: cover;     
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      object-fit: cover;
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: scale(1.05);
-        cursor: pointer;
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        transition: filter 0.3s ease, transform 0.3s ease;
       }
+
+      .hover-keyword {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+
+      &:hover img,
+      &.active img {
+        filter: brightness(0.4);
+      }
+
+      &:hover .hover-keyword,
+      &.active .hover-keyword {
+        opacity: 1;
+      }
+    }
+  }
+
+  .gallery-text {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: $text-color-dark;
+    min-height: 120px;
+    transition: all 0.4s ease;
+    opacity: 0;
+    transform: translateY(20px);
+
+    &.active {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }
 
-// Contacto y botones
 .contact {
   padding: 3rem 2rem;
- // violeta oscuro
-  background:$primary-color;
+  background: $primary-color;
   color: $text-color-dark;
   text-align: center;
+
+  .contact-intro {
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
 
   h2 {
     font-size: 2.4rem;
@@ -147,7 +192,6 @@ body, html {
         background-color: #25d366;
         &:hover {
           background-color: color.adjust(#25d366, $lightness: -10%);
-
         }
       }
 
@@ -155,13 +199,6 @@ body, html {
         background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
         &:hover {
           filter: brightness(1.2);
-        }
-      }
-
-      &.mercado-pago {
-        background-color: #023db3;
-        &:hover {
-          background-color: color.scale(#003399, $lightness: -10%);
         }
       }
     }
