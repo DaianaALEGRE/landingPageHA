@@ -225,3 +225,78 @@ footer {
   opacity: 0.8;
   z-index: 999;
 }
+
+/* ====== MOBILE ====== */
+
+/* ≤652px → columna única, palabra sobre imagen, texto debajo */
+/* ≤652px → columna única */
+/* ====== GALERÍA MOBILE ====== */
+
+/* ≤652px → columna única */
+@media (max-width: 652px) {
+  .gallery-grid {
+    display: flex !important;       // reemplaza grid de escritorio
+    flex-direction: column !important; // columna única
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .gallery-item {
+    width: 90%; 
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
+
+    .hover-keyword {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      opacity: 1;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    /* TEXTO MÓVIL CON ANIMACIÓN */
+    .mobile-text {
+      max-height: 0;          // inicialmente colapsado
+      overflow: hidden;
+      opacity: 0;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+      color: $text-color-dark;
+      width: 100%;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+
+    &.active .mobile-text {
+      max-height: 500px;  // suficiente para todo el contenido
+      opacity: 1;
+    }
+  }
+
+  #gallery-text {
+    display: none; // ocultamos div general en mobile
+  }
+}
+
+/* ≤427px → igual que 652px pero más estrecho */
+@media (max-width: 427px) {
+  .gallery-item {
+    width: 90%;
+  }
+}
